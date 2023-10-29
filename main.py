@@ -1,6 +1,8 @@
 from defs import calculate_days_lived, investment, count_substring, summator
-from caculator import calculate_discriminant, calculate_probability
-from modul_string import *
+from calculator import calculate_discriminant, calculate_probability
+from module_string import *
+from exception import transfer_money, MoneyError
+from convert import convert
 from os import system as command
 from msvcrt import getch
 
@@ -14,7 +16,9 @@ try:
     4. Сумматор
     5. Модуль арифметики
     6. Модуль строк
-    7. Выход
+    7. Безопасная конвертация типов
+    8. Перевод денег
+    9. Выход
     """))
         match menu:
             case 1:
@@ -81,7 +85,42 @@ try:
                         print(count_substrings())
                         print('Нажмите любую клавишу, чтобы продолжить', end='', flush=True)
                         getch()
-
+            
             case 7:
+                value = input("Введите значение переменной для конвертации: ")
+                types = {
+                    "int": int,
+                    "float": float,
+                    "str": str,
+                    "list": list,
+                    "bool": bool
+                }
+
+                choosen_type = input("Введите тип в который будет конвертирована переменная: ")
+
+                if choosen_type not in types: 
+                    break
+
+                _type = types[choosen_type]
+
+                print(f"Тип до конвертации: {type(value).__name__}")
+                value = convert(value, _type)
+                print(f"Тип после конвертации: {type(value).__name__}")
+
+                getch()
+
+            case 8:
+                try:
+                    sender = str(input("Введите имя отправителя: "))
+                    recipient = str(input("Введите имя получателя: "))
+                    amount = int(input("Введите кол-во денег: "))
+                    transfer_money(sender, recipient, amount)
+                    print(f"Деньги были переведены от {sender} к {recipient} ")
+                except MoneyError as e:
+                    print(f"Не удалось перевести деньги. Ошибка: {e}")
+
+                getch()
+
+            case 9:
                 quit()
 except ValueError: print("Данные введен не верно\n\n")

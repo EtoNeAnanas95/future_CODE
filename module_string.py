@@ -4,28 +4,28 @@ def find_symbol() -> int:
     return string.find(char)
 
 
-def get_uppercase_letters() -> int:
+def get_uppercase_letters() -> list[str]:
     string = input("Ведите текст \n")
     return [char for char in string if char.isupper()]
 
 
-def get_lowercase_letters() -> int:
+def get_lowercase_letters() -> list[str]:
     string = input("Ведите текст \n")
     return [char for char in string if char.islower()]
 
-def get_numerical_characters() -> int:
+def get_numerical_characters() -> list[str]:
     string = input("Ведите текст \n")
     return [char for char in string if char.isdigit()]
 
-def is_uppercase() -> int:
+def is_uppercase() -> bool:
     char = input("Ведите cимвол\n")
     return char.isupper()
 
-def is_lowercase() -> int:
+def is_lowercase() -> bool:
     char = input("Ведите cимвол\n")
     return char.islower()
 
-def is_digit() -> int:
+def is_digit() -> bool:
     char = input("Ведите cимвол\n")
     return char.isdigit()
 

@@ -14,10 +14,4 @@ def transfer_money(sender: str, recipient: str, amount: int) -> None:
   # Тут дальше должна быть реализация передачи
 
 # Проверка работы ошибки
-try:
-  sender = "Дмитрий"
-  recipient = "Даниил"
-  amount = -100
-  transfer_money(sender, recipient, amount)
-except MoneyError as e:
-  print(f"Не удалось перевести деньги. Ошибка: {e}")
+
