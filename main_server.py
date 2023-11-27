@@ -22,7 +22,7 @@ match menu:
                 start_server()
             case 2:
                 message = input("Введите сообщение:\n")
-                send_massage(message)
+                send_massage(message.encode("utf-8"))
     case 4:
         url = "http://example.org"
         print(f"по ссылке {url}, значение {get_title_value(url)}")

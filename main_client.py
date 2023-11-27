@@ -26,7 +26,7 @@ match menu:
         match menu_second:
             case 1:
                 message = input("Введите сообщение:\n")
-                send_massage(message)
+                send_massage(message.encode("utf-8"))
             case 2:
                 start_server()
     case 4:
