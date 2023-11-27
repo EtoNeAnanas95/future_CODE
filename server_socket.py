@@ -25,7 +25,7 @@ def start_server():
         client_handler.start()
 
 
-def second_task():
+def second_task_server():
     import pickle
     with sc.socket(sc.AF_INET, sc.SOCK_STREAM) as server_socket:
         server_socket.bind(("127.0.0.1", 5555))

@@ -12,11 +12,11 @@ match menu:
     case 1:
         start_server()
     case 2:
-        second_task()
+        second_task_server()
     case 3:
         menu_second = int(input("""Выберите сокет:
-   1. Client
-   2. Server\n"""))
+   1. Server
+   2. Client\n"""))
         match menu_second:
             case 1:
                 start_server()
