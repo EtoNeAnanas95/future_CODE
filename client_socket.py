@@ -19,6 +19,7 @@ def first_task():
         random.shuffle(messages)
         message = messages[0].encode("utf-8")
         send_massage(message)
+        time.sleep(3)
 
 
 def send_massage(message):

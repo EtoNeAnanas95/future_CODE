@@ -1,6 +1,7 @@
 from client_socket import *
 from server_socket import *
 from work_with_http import *
+import threading
 
 
 menu = int(input("""Выберите дейтсвие:
@@ -10,7 +11,12 @@ menu = int(input("""Выберите дейтсвие:
    4. Четвёртый номер\n"""))
 match menu:
     case 1:
-        first_task()
+        first_client = threading.Thread(target=first_task)
+        second_client = threading.Thread(target=first_task)
+
+        first_client.start()
+        second_client.start()
+
     case 2:
         second_task()
     case 3:
